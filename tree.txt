@@ -1,0 +1,34 @@
+── db.sqlite3
+├── gp_app
+│   ├── admin.py # Where model configurations are defined in relation to the project admin page
+│   ├── apps.py # Where app configurations are defined
+│   ├── __init__.py
+│   ├── migrations # The directory that contains migrations applied to the app’s database definitions (i.e., model classes).
+│   │   ├── __init__.py
+│   ├── models.py # Where database tables are defined as Models
+│   ├── tests.py
+│   └── views.py # Where Django views are defined. These are objects that
+                 # Where Django views are defined. These are objects that
+├── gp_project
+│   ├── asgi.py
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── manage.py
+├── Procfile
+├── README.md
+├── requirements.txt
+├── runtime.txt
+├── staticfiles
+└── templates
+    └── index.html
+
+# Do the migration
+1. python manage.py makemigrations gp_app
+
+0001.initial.py (this new file are created)
+
+2. python manage.py sqlmigrate gp_app 0001
+
+3. python manage.py migrate
