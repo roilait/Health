@@ -1,0 +1,61 @@
+{% extends "gp_app/base.html" %} 
+
+{% load crispy_forms_tags %}
+
+<!--  This is the top lfet container  -->
+
+{% block top-left-container %}
+
+    <div class="row">
+
+        <div class="container-fluid" style="float:center;padding-bottom:1.5em;background-color:#fff;padding-top:1em;border-radius:.5em;width:100%">
+
+            <div class="card">
+
+                <div class="card-header" style="color: white;font-size: 1.30em;background-color: #0080ff"> CONNEXION </div>
+
+                <div class="card-body">
+
+                    <span class="card-title"> {% include "gp_app/messages.html" %} </span>
+
+                    <form action="{% url 'login' %}" method="POST" style="width: 100%">  
+
+                        {% csrf_token %}
+
+                        {% crispy login_form %} 
+
+                        <p> <a href="{% url 'forgotten_password' %}"> Mot de passe oublié </a> </p> 
+
+                        <div class="form-group">
+
+                            <button type="submit" class="btn btn-warning btn-md btn-block"> Se connecter   </button>
+                            
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}  
+
+<!--  This is the bottom left container   -->
+
+{% block bottom-left-container  %}
+   
+
+{% endblock %}  
+
+
+<!--  This is the right container   -->
+
+{% block right-container  %} 
+
+    {% include "gp_app/right/right.html" %} 
+
+{% endblock %} 

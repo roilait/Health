@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title> Vitexpro </title>
+
+  </head>
+
+  <body>
+
+    <table style="width: 90%; margin-left: 5%;">
+
+      <tr>
+
+        <td style="background-color: black;color: white; text-align: center;"> 
+
+          <h4> Vitexpro - nouvelle réservation </h4>
+
+        </td>
+
+      </tr>
+
+      <tr>
+
+        <td style="text-align: center"> 
+
+          Salut, {{ receiver_full_name }}, 
+
+          {% if email_to_poster %}
+
+            nous vous informons qu'une nouvelle réservation a été effectuée sur un de vos GP et voici les informations sur le réserveur. 
+
+          {% endif %}
+
+          {% if email_to_reserver %} 
+
+            ci-dessous les informations sur la réservation que vous venez d'effectuer. Merci pour votre confiance.
+
+          {% endif %}
+
+          <hr> 
+
+          <p> {% include 'emails/user_info.html' %} </p>
+
+        </td>
+
+      </tr>
+
+      <tr>
+
+        <td> 
+
+         <p style="text-align: center;margin-left: 9%;width: 80%"> 
+
+            <a href="{{confirm_url}}"> 
+
+              <button style="background-color: #e69900; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none;
+                display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; width: 100%;"> GP PIN : <b> {{ poste_code }} </b>
+              </button> 
+
+            </a> 
+
+          </p> <hr>
+
+        </td>
+
+      </tr>  
+
+      <tr><td> Equipe Vitexpro </td> 
+
+      <tr><td><a href="www.vitexpro.com"> <p> Retourner sur www.vitexpro.com </p></a> </td> 
+
+    </table>
+
+  </body>
+
+</html>
+

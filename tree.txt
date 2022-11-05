@@ -32,9 +32,3 @@
 2. python manage.py sqlmigrate gp_app 0001
 
 3. python manage.py migrate
-
-
-
-sudo apt-get install python3.10-venv
-python3 -m venv env-sante
-

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title> Vitexpro </title>
+
+  </head>
+
+  <body>
+
+
+  <table style="width: 90%; margin-left: 5%;">
+
+      <tr>
+
+        <td colspan="2" style="background-color: black;color: white; text-align: center;"> 
+
+          <h4> Voici un GP correspondant à votre demande </h4>
+
+        </td>
+
+      </tr>
+
+      <tr>
+
+        <td colspan="2" style="padding-top: 0.5em;text-align: center" > 
+
+          <p> Salut, {{ full_name }}, ci-dessous les informations sur la proposition que vous aviez demandé <hr> </p>
+
+        </td>
+        
+      </tr>
+
+      <tr>
+
+      <tr style="padding-top: 0.5em; text-align: left">
+
+        <td> Départ le: </td> <td> {{ departure_date }}, </td>
+
+      </tr>
+
+      <tr>
+
+        <td style="padding-top: 0.5em;text-align: left"> De: </td> 
+
+        <td style="text-align: left"> {{ departure }}, </td>
+
+      </tr>
+
+      <tr>
+
+        <td style="padding-top: 0.5em;text-align: left"> Vers: </td> 
+
+        <td style="text-align: left"> {{ destination }}, </td>
+
+      </tr>
+
+      <tr>
+        
+        <td colspan="2" align="center">
+
+          <p> Cliquer  <a href="https://vitexpro.com/trouver-un-service/"> 
+            <i style="padding-top: 0.5em;color:blue"> ICI </a> pour trouver le GP </p> 
+
+        </td> 
+
+      </tr> 
+
+      <tr> <td colspan="2" align="center" style="padding-top: 0.5em;"> Equipe Vitexpro </td> 
+
+    </table>
+
+  </body>
+
+</html>

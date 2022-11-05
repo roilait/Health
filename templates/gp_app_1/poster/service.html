@@ -1,0 +1,150 @@
+<style>
+.button {
+  border: none; color: white; padding: 10px 32px; text-align: center; text-decoration: none; display: inline-block;
+  font-size: 16px; margin: 4px 2px; cursor: pointer;
+}
+
+.button1 {background-color: #4CAF50;} /* Green */
+.button2 {background-color: #008CBA;} /* Blue */
+
+
+
+/*table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;    
+}*/
+
+</style>
+
+
+{% extends "gp_app/base.html" %} 
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+<!-- This is the top lfet container -->
+
+{% block top-left-container %}
+
+    <div class="main-div"> 
+
+        <h1 class="custom-form-title"> Selectionez un service  </h2>
+
+        <hr>
+
+	    {% if request.session.logged_in %}
+
+		    <form action="{% url 'go_to_poster_form' %}" method="POST">
+
+		    	{% csrf_token %}
+
+			    <table width="100%" align="center">
+
+			    	<tr style="margin-bottom:5px">
+
+			    		<td width="7%"> 
+
+			    			<input type="radio" name="service" value="gp" required="required" checked>
+
+			    		</td>
+
+			    		<td width="15%">
+
+			    			<i style="color:black;font-size:50px;color:blue" class="fas fa-box"></i> 
+
+			    		</td> 
+
+			    		<td> 
+			    			<!-- <button class="button button2"> --> 
+
+			      				Je veux proposer un trajet aux membres qui ont des colis à envoyer.
+
+			      			<!-- </button> -->
+
+		      		   </td>
+
+			    	</tr>
+
+			    	<tr> <td colspan="3">  </td> </tr>
+
+			    	<tr style="background-color: #F2F3F4">
+
+			    		<td> <input type="radio" name="service" value="taxi" required="required"> </td>
+
+			    		<td> <i style="color:black;font-size:50px;color:green" class="fa fa-taxi"> </i> </td> 
+
+			    		<td> 
+
+				    		<!-- <button class="button button1">  --> 
+
+			      				J'ai besoin d'un Taxi à mon arrivé à l'aéroport. 
+
+			      			<!-- </button> -->		  
+
+			    		</td>
+
+			    	</tr>
+
+			    	<tr> <td colspan="3"> <hr> </td> </tr>
+
+			    	<tr> 
+
+			    		<td colspan="3" align="center"> 
+
+			    			<button type="submit" class="btn btn-primary"> Selectionner </button> 
+
+			    		</td>
+
+			    	</tr>
+
+			    </table>
+
+			 </form>
+			 
+		{% else %}
+
+			<p> <i style="color:#808080"> Hops, nous remarquons que vous êtes pas connecté </i> </p>
+
+			<p style="color:#808080"> 
+
+				<i class="fa fa-share" aria-hidden="true" style="margin-right: 10px"></i>
+
+				Cliquer <a href="{% url 'login' %}"> ici </a> pour vous connecter 
+
+			</p>
+
+			<p style="color:#808080"> 
+
+				<i class="fa fa-share" aria-hidden="true" style="margin-right: 10px"></i>
+
+				Cliquer <a href="{% url 'register' %}"> ici </a> pour devenir un membre. 	
+							
+			</p>
+
+		{% endif %}
+
+    </div>
+
+{% endblock %}  
+
+
+<!-- This is the bottom left container -->
+
+{% block bottom-left-container  %}
+
+
+{% endblock %}  
+
+
+<!-- This is the right container -->
+
+{% block right-container  %} 
+
+    {% include "gp_app/right/right.html" %} 
+
+{% endblock %} 

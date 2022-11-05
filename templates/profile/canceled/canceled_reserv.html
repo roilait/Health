@@ -1,0 +1,42 @@
+<!-- {% if not df_user_posts.empty %} -->
+
+    {% if not df_member_canceled_posts.empty %}
+
+        {% for index, row in df_member_canceled_posts.iterrows  %}
+
+            <div class="card text-center mb-3" style="width: 100%;">
+
+                <!-- #E5EC9A #D1E8CF, Header block -- C4D4DF -->
+                
+                <div class="card-header" style="background-color: #E6A292"> 
+
+                  {% include 'gp_app/poster/header.html' %} 
+
+                </div>
+
+                <!-- Center Block -->
+                
+                <div class="card-body"> {% include 'gp_app/poster/body.html' %} </div>
+
+                <!-- Footer Block -->
+                <div class="card-footer text-muted">  
+
+                  Voir le(s) reservation(s)
+
+                </div>
+
+          </div>
+
+        {% endfor %}
+
+    {% else %}
+
+      <p style="color:#A44D09"> Vous avez (0) proposition annulée </p>
+
+    {% endif %}
+
+<!-- {% else %}
+
+   Vous avez (0) proposition(s) annulées(s)
+
+{% endif %} -->

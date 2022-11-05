@@ -1,0 +1,145 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <title> Lexeiba Gorgol </title>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <meta name="description" content=""/>        
+
+    <meta name="author" content="" /> 
+
+    <!-- Favicon-->
+
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>  
+
+    <!-- Font Awesome icons (free version)-->
+
+    <!-- Google fonts-->
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>   
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>  
+
+    <!-- css files--> 
+
+    <!-- Core theme CSS (includes Bootstrap)-->          
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css_files/styles.css' %}">  
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css_files/bootstrap.min.css' %}"> 
+
+    <!-- For dependent drop down list --> 
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css_files/select2.min.css' %}">  
+
+    <!-- js files-->
+
+    <script src="{% static 'js/jquery.min.js' %}"></script> 
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script> 
+
+    <script src="{% static 'js/all.js' %}" crossorigin="anonymous"></script> 
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+  <style>
+  .fakeimg-1 {
+    height: 200px;
+    background: #aaa;
+  }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+
+  <h1> My First Bootstrap Page de Lexeiba </h1>
+
+  <p> Fédération des Associations des Lexeiba Gorgol </p> 
+
+</div>
+
+<nav class="navbar navbar-inverse">
+
+  <div class="container-fluid">
+
+    {% block menu %}
+
+        {% include "menu.html" %}
+
+     {% endblock %}
+
+  </div>
+
+</nav>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-sm-4">
+
+            {% block left %}
+
+            {% endblock %}
+
+            {% include "links.html" %}
+
+        </div>
+
+        <div class="col-sm-8">
+
+            {% block right %}
+
+                {% block right_top  %}
+
+
+                {% endblock %}
+
+                {% block right_bottom  %}
+                
+
+                {% endblock %}
+
+           {% endblock %}
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+
+  <p>           
+
+    {% block blockFooter %} 
+
+         Footer
+
+      {% endblock %}     
+
+    </p>
+
+</div>
+
+</body>
+
+</html>

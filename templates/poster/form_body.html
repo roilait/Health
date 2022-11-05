@@ -1,0 +1,97 @@
+{% load crispy_forms_tags %}
+
+<p>
+
+	<i style="color: #808080"> Les champs avec <i style='color:red'>*</i> sont obligatoires.</i>
+
+</p>
+
+{% csrf_token %}
+
+{% crispy form %}	
+
+<div class="input-group mb-3">
+
+	<div class="input-group-prepend">
+
+	    <span class="input-group-text" id="basic-addon1"> 
+
+	    	<i class="fas fa-luggage-cart" style="margin-right: 27px"> </i>  
+
+			kg <i style="color: red">*</i> <i style="margin-right: 15px"> </i>
+
+		</span>
+
+	</div>
+
+	<input type="number" pattern="[0-9]{4}" class="form-control" placeholder="10" name="numberOfKg" value="" required>
+
+	<div class="input-group-prepend">
+
+	    <span class="input-group-text" id="basic-addon1"> Disponibles </span>
+
+	</div>
+
+</div>
+
+<div class="input-group mb-3">
+
+  	<div class="input-group-prepend">
+
+    	<span class="input-group-text" id="basic-addon1"> Prix / kg <i style="color: red;margin-left: 20px">*</i> </span>
+
+  	</div>
+
+  	<input type="number" pattern="[0-9]{4}" class="form-control" placeholder="00" name="priceOfKg" value="" required>
+
+  	<select class="custom-select" name="countryCurrency" required>
+
+	    <option selected value=""> En monnaie de </option>
+
+	    {% for var_country in countries %}
+
+	        <option value="{{ var_country }}"> {{ var_country }} </option>
+
+	    {% endfor %}
+
+	 </select>
+
+</div>
+
+<div class="input-group mb-3">
+
+	<div class="input-group-prepend">
+
+	    <label class="input-group-text" for="inputGroupSelect01"> 
+
+	    	Colis <i style="color: red">*</i> <i style="margin-right: 43px"></i>
+
+	    </label> 
+
+	</div>
+
+	<select class="custom-select" name="gpSentBy" value="" required>
+
+	    <i class="fas fa-plane-departure" style="margin-right: 10px"></i> 
+
+	    <option value="air" selected> envoyé par avion </option>
+
+	    <option value="mer"> envoyé par bateau </option>
+
+	    <option value="terre"> envoyé par voiture </option>
+
+	</select>
+
+</div>
+
+<div class="input-group">
+
+	<div class="input-group-prepend" >
+
+		<span class="input-group-text"> Message </span>
+
+	</div>
+
+	<textarea class="form-control" name="comment" value="" maxlength="150"></textarea>
+
+</div>

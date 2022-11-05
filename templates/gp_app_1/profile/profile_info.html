@@ -1,0 +1,140 @@
+<style>
+
+	.circle-image-p{display: inline-block; border-radius: 50%; overflow: hidden; width: 100px; height: 100px;}
+
+	.circle-image-p img{width:150%; height:150%; object-fit: cover;}
+
+</style>
+
+{% load static %}
+
+<table width="100%">
+
+	<tr align="left">
+
+	    <td rowspan="3" width="30%"> <img class="circle-image-p" src="{{ profile.image.url }}" alt="No"/> </td>
+
+	    <td> <i class='fa fa-phone' style='margin:5px'></i> {{ profile.phone_number }} </td>
+
+	</tr>
+
+	<tr align="left">
+
+	    <td width="70%"> <i class='fa fa-user' style='margin:5px'></i> {{ profile.city }}, {{ profile.country }}  </td>
+
+	</tr>
+
+	<tr align="left">
+
+	    <td> <i class="fa fa-sign-language" style='margin:5px'></i> {{ profile.language }} </td>
+
+	</tr>
+
+	<tr align="left" style="height: 40px">
+
+	    <td colspan="2" style="padding-left: 0.8em"> <i class='fa fa-envelope' style='margin:5px'></i> {{ user.email }} </td>
+
+	</tr>
+
+	<tr align="left" style="height: 40px">
+
+	    <td colspan="2" style="padding-left: 0.8em">
+
+	    	<i class='fa fa-users' style='margin:5px'></i> 	Compte:	<span style="color:green"> <b> {{ profile.account_type }} </b> </span>
+
+	    </td>
+
+	</tr>
+
+	<tr align="left" style="height: 40px">
+
+	    <td colspan="2" style="padding-left: 0.8em">
+
+	    	<i class="fa fa-share" aria-hidden="true"></i> Notes:<b> {{ profile.notes }} </b>
+
+	    	<i style="font-size:12px;color:#D68910" class="fa fa-star"></i>
+
+	    </td>
+
+	</tr>
+
+	<tr align="left" style="height: 40px">
+
+	    <td colspan="2" style="padding-left: 0.8em">
+
+	    	<i class="fa fa-share" aria-hidden="true"></i>
+
+	    	Taux d'acceptation: <span style="color:green"> {{ profile.accept_rate }} % </span>
+
+	    </td>
+
+	</tr>
+
+	<tr align="left" style="height: 40px">
+
+	    <td colspan="2" style="padding-left: 0.8em">
+
+	    	<i class="fa fa-share" aria-hidden="true"></i> 
+
+	    	Taux d'annulation: <span style="color:green"> <b> {{ profile.cancel_rate }} % </b> </span>
+
+	    </td>
+
+	</tr>
+	
+	<tr>
+
+	  <td colspan="2"> 
+
+	    <table style="width:100%;">
+
+	      <tr> <hr style="margin-top:0px; margin-bottom: 3px"> 
+
+	        <td style="text-align: center"> 
+
+	        	<a href="{% url 'edit_user' request.session.user_id %}">
+
+	          	  <button type="button" class="btn btn-primary btn-sm"> 
+
+	          		Modifier mon profil <i class="fa fa-wrench" aria-hidden="true"></i>
+
+	          	  </button>
+
+	          	</a>	
+
+	        </td>
+
+	        <td style="text-align: center"> 
+
+	        	<a href="#">
+	        		<!-- <a href="{% url 'upload_picture' %}"> -->
+
+	          	  <button type="button" class="btn btn-secondary btn-sm"> 
+
+	          		Modifier ma photo <i class="fa fa-wrench" aria-hidden="true"></i>
+
+	          	  </button>
+
+	          	</a>
+
+	        </td>
+
+	      </tr>
+
+        </table>
+
+      </td>
+
+	</tr> 
+
+	{% if not df_alerts.empty %}
+
+		<tr> <td colspan="2">  <hr width="100%" style="margin-top:0px; margin-bottom: 3px"> <td colspan="2"> </td> </tr>
+
+		<tr> <td colspan="2" style="color:white;background-color: #0080ff"> <b> MES ALERTES ({{ df_alerts.shape.0 }}) </b> </td> </tr>
+
+		<tr> <td colspan="2" style="background-color: #0080ff"> {% include 'gp_app/alert_me/my_alerts.html' %} </td> </tr>
+
+	{% endif %}
+
+</table>

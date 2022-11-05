@@ -1,0 +1,41 @@
+<table style="width: 100%;">
+
+   <tr>
+
+    <td style="float:center;padding-top:5px; color: #BD1256"> 
+
+        <b> Ma réservation - {{ index_re|add:1 }} </b> 
+
+    </td>
+
+  </tr>
+
+  <tr>
+
+    <td style="float: left; padding-top:5px"> 
+
+      <b> Total de Kg réservés: </b>  <span style="color: #BD1256"> {{ row_re.nbr_kilos }} kg </span> 
+
+    </td>
+
+  </tr>
+
+  <tr>
+
+    <td style="float: left; padding-top:5px"> 
+
+      <b> Montant total:  </b> 
+
+      <span style="color: #BD1256"> {{ row_re.total_price }} {{ row.currency_used }} </span>
+
+    </td>
+
+  </tr>
+
+  <tr>
+
+    <td style="float: left; padding-top:5px"> <b> Réservé le {{ row_re.publish_date }} </b> </td>
+    
+  </tr>
+  
+</table>

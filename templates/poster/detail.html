@@ -1,0 +1,169 @@
+<!-- Detail file in poster folder -->
+<style>
+
+.circle-image-c{display: inline-block; border-radius: 50%; overflow: hidden; width: 35px; height: 35px;}
+
+.circle-image-c img{width:150%; height:150%; object-fit: cover;}
+
+</style>
+
+{% extends "gp_app/base.html" %} 
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+<!--  This is the top lfet container  -->
+
+{% block top-left-container %}
+
+  <div class="row">
+
+    <div class="container-fluid" style=" float:center; background-color: #fff; padding: 15px; border-radius: 5px; width: 100%">
+
+      {% if request.session.profile_is_updated %}
+
+        {% if reservation_confirmed %}
+
+            {%include "gp_app/reserver/confirmation.html" %}
+
+        {% else %}
+
+          <span style="color: black"> 
+
+            {% for index, row in df_post.iterrows %}
+
+              <div class="card text-center">
+
+                <div class="card-header" style="color:white;font-size: 1.25em;background-color: #0080ff"> 
+
+                  FAIRE UNE RESERVATION 
+
+                </div>
+
+                <!-- Header block -->
+
+                <div class="card-header"> {% include 'gp_app/poster/footer.html' %} </div>
+
+                <!-- Center block -->
+
+                <div class="card-body">
+
+                  <h6 class="card-title">
+
+                    <span style="color:#873600;font-family: Helvetica, Arial, sans-serif;font-size: 15px"> {{ row.comment }} </span>  
+
+                  </h6>
+                  
+                  <!-- Display a message error -->    
+
+                  {% include "gp_app/messages.html" %} 
+
+                  {% include 'gp_app/poster/body.html' %} 
+
+                </div>
+
+                <!-- Fooder block -->
+
+                <div class="card-footer text-muted"> {% include 'gp_app/poster/header.html' %} </div>
+
+                <!-- Reseration block -->
+
+                <div class="card-footer text-muted"> 
+                
+                  <form action="{% url 'confirm_reservation' %}" method="POST", style="padding-top: 0px">
+
+                      {% csrf_token %}
+
+                      <input type="hidden" id="poster_id" name="poster_id" value="{{ row.poster_id }}">
+
+                      <input type="hidden" id="post_id" name="post_id" value="{{ row.post_id }}">
+
+                      <input type="hidden" id="price" name="price" value="{{ row.price_of_kg }}">
+
+                      <input type="hidden" id="post_code" name="post_code" value="{{ row.post_code }}">
+
+                      <input type="hidden" id="post_state" name="post_state" value="{{ row.post_state }}">
+
+                      <input type="hidden" id="currency" name="currency" value="{{ row.currency_used }}">
+
+                      <label style="margin-right:10px"> Je veux réserver: </label> 
+
+                      <input type="number" id="number_of_kg_reserved" name="nbr_of_kg_reserved" required style="width: 6em;margin-right: 5px"> kg <br> <hr width="100%">
+
+                      <span style="text-align: center;width: 100%"> <input type="submit" value="Réserver maintenant"> </span>
+
+                  </form>
+
+                </div>
+
+                <!-- Comment block -->
+
+                <div class="card-footer text-muted"> 
+
+                  <table style="width:100%">
+
+                    <tr> <td style="height:35px"> Membre depuis: </td> <td> </td> </tr>
+
+                    <tr> <td style="height:35px"> Total de Gp proposés: </td> <td> </td> </tr>
+
+                    <tr> <td style="height:35px"> Total de Gp complétés: </td> <td> </td> </tr>
+
+                  </table>
+
+                </div>
+
+              </div>
+
+            {% endfor %}
+
+          </span>  
+
+        {% endif %}
+
+      {% else %}
+
+        <div class="card text-center">
+
+          <div class="card-header" style="color: #5D6D7E;font-size: 1.25em"> Detail de l'annonce </div>
+
+          <div class="card-body">
+
+            <!-- You have to login to do a reservation -->   
+
+            <p style="color:red"> Hops, Votre profil n'est pas à jour pour faire une réservation. </p>
+
+            <p style="color:#808080"> 
+              
+              <i class="fa fa-share" aria-hidden="true"></i>
+
+              Cliquer <a href="{% url 'user_profile' %}"> ici </a> pour faire une mise à jour de votre profil. 
+              
+            </p>
+
+          </div>
+
+        </div>
+
+      {% endif %}              
+
+    </div>
+
+  </div>
+
+{% endblock %}
+
+<!--  This is the bottom left container   -->
+
+{% block bottom-left-container  %}
+
+ 	
+{% endblock %}  
+
+<!--  This is the right container   -->
+
+{% block right-container  %} 
+
+  {% include "gp_app/right/right.html" %} 
+
+{% endblock %} 

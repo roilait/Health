@@ -1,0 +1,93 @@
+<style type="text/css">
+.margin_top {
+    margin-bottom: 9px;
+  }
+
+</style>
+
+<form action="{% url 'registration' %}" method="POST">
+
+  {% csrf_token %}
+
+  <div style="width:100%"> <h2> S'inscrire  </h2> </div> 
+
+  <div style="width:100%"> <hr > </div> 
+
+  <div class="row margin_top">
+
+    <label for="fname" class="col-sm-5 col-form-label"> Prénom </label>
+
+    <div class="col-sm-7">
+
+      <input name="fname" maxlength="100" required type="text" class="form-control" placeholder="votre prénom" value="{{ request.form['fname'] }}">
+
+    </div>
+
+  </div>
+    
+  <div class="row margin_top">
+
+    <label for="lname" class="col-sm-5 col-form-label"> Nom de famille </label>
+
+    <div class="col-sm-7">
+
+      <input name="lname" type="text" class="form-control" placeholder="votre nom de famille">
+
+    </div>
+
+  </div> 
+
+  <div class="row margin_top">
+
+    <label for="email" class="col-sm-5 col-form-label"> Adresse email </label>
+
+    <div class="col-sm-7">
+
+      <input name="email" type="email" class="form-control" id="email" placeholder="votre adresse email">
+
+    </div>
+
+  </div>
+
+   <div class="row margin_top">
+
+    <label for="country" class="col-sm-5 col-form-label"> Pays de résidence </label>
+
+    <div class="col-sm-7">
+
+      <select name="country" id="country" value="3" class="form-control" > 
+
+        <option value="" selected disabled hidden> Choisir pays de résidence </option>
+
+        {% for country in list_of_countries %}
+
+          <option value="{{ country }}"> {{ country }} </option> 
+
+        {% endfor %} 
+
+      </select>
+
+    </div>
+
+  </div>
+
+  <div class="row margin_top">
+
+    <label for="phone" class="col-sm-5 col-form-label"> Téléphone </label>
+
+    <div class="col-sm-7">
+
+      <input name="phonenumber" type="number" class="form-control" id="phonenumber" placeholder="indi. + votre numéro">
+
+    </div>
+
+  </div>
+
+  <!-- Submit button -->
+
+  <button type="submit" class="btn btn-primary btn-block mb-4" style="background-color:#6495ED;"> 
+
+    <h2 style="font-size: 20px; margin-top: 10px">  Inscription </h2> 
+
+  </button>
+

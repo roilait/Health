@@ -1,0 +1,57 @@
+<div class="card text-center">
+
+  <div class="card-header bg-success text-white" style="color: #5D6D7E;font-size: 1.1em"> 
+
+      Votre réservation a été confirmée.
+
+  </div>
+
+  <div class="card-header" style="color: #5D6D7E;font-size: 1.1em"> 
+
+    <img class="circle-image-c" src="{{ poster_picture }}" alt="No" style="margin-right: 5px" />
+
+    Information votre co-valiser
+
+  </div>
+
+  <div class="card-body" style="color: black;">
+
+    <table>
+
+      <tr> <td style="float:left"><p><b> Nom et prénom  </b> {{ poster_full_name }} </p> </td> </tr>
+
+      <tr> <td style="float:left"><p><b> Téléphone: </b> {{ poster_phone_number }} </p> </td> </tr>
+
+      <tr> <td style="float:left"><p><b> Langue: </b> {{ poster_language }} </p> </td> </tr>
+
+      <tr> <td style="float:left"><p><b> E-mail: </b> {{ poster_email }} </p> </td> </tr>
+
+      <tr> <td style="float:left"><b> GP PIN: </b> <span style="color:red"> {{ post_code }} </span> </td> </tr>
+
+    </table> 
+
+  </div>
+
+  <div class="card-footer text-muted"> 
+
+    <table>
+
+      <tr> <td style="float:left"> <p> Vous avez réservé <b> {{ kg_reserved }} kg </b> </p> </td> </tr>
+
+      <tr> <td style="float:left"> Montant total est:  <b>{{ total_price }} {{ currency}} </b> </td> </tr>
+
+    </table>  
+
+  </div>
+
+  <div class="card-footer text-muted"> 
+
+    <button type="submit" class="btn btn-warning btn-md btn-block"> 
+
+      <a href="{% url 'user_profile' %}" style="color:black">  Mon profile </a> 
+
+    </button>
+
+  </div>
+
+</div>

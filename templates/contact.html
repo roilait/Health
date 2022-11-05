@@ -1,0 +1,169 @@
+{% extends "base.html" %} 
+
+{% load crispy_forms_tags %}
+
+<!--  This is the top lfet container  -->
+
+{% block top-left-container %}
+
+<style type="text/css">
+  
+  body {font-family: 'Lato', sans-serif}
+
+    h1 {margin-bottom: 40px}
+
+    label {color: #333}
+
+    .btn-send {font-weight: 300; text-transform: uppercase; letter-spacing: 0.2em; width: 80%; margin-left: 3px}
+
+    .help-block.with-errors {color: #ff5050; margin-top: 5px}
+
+    .card {margin-left: 10px; margin-right: 10px}
+
+</style>
+
+<div class="row">
+
+    <div class="container-fluid" style=" float:center; background-color: #fff; padding: 15px; border-radius: 5px; width: 100%">
+
+      <div class="card text-center">
+
+            <div style="white: black;padding: 10px;margin-bottom: 10px;font-size: 21px; background-color: #0080ff">
+
+                <i> NOUS CONTACTER </i> <br> 
+
+                
+
+                {% if message_send %}
+
+                    <b style="color: green;"> Hops! votre message a été envoyé. </b>
+
+                {% else %}
+
+                   <i style="color:red"> {{ feadback_message }} </i> <br> 
+
+                {% endif %}
+
+            </div> 
+
+            <form action="{% url 'contact_us' %}" method="POST" id="contact-form" role="form">
+
+                {% csrf_token %}
+
+                <div class="controls">
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+
+                                <input id="form_name" type="text" name="first_name" class="form-control" placeholder="Votre prénom *" required="required"> 
+
+                            </div>
+                                        
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="form-group"> 
+
+                                <input id="form_lastname" type="text" name="last_name" class="form-control" placeholder="Votre nom de famille*" required="required"> 
+
+                            </div>
+                                        
+                        </div>
+                                    
+                    </div>
+                                    
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <div class="form-group"> 
+
+                                <input id="form_email" type="email" name="email" class="form-control" placeholder="Votre email *" required="required"> 
+
+                            </div>
+
+                        </div>
+                                        
+                        <div class="col-md-6">
+
+                            <div class="form-group"> 
+
+                                <select id="form_need" name="need" class="form-control" required="required" data-error="Votre besoin.">
+                                                    
+                                    <option value="" selected disabled> --- Aide à propos --- </option>
+
+                                    <option value="gp"> de mon GP </option>
+
+                                    <option value="autre"> Autre </option>
+
+                                </select> 
+
+                            </div>
+                                        
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+
+                            <div class="form-group"> 
+
+                                <textarea id="form_message" name="message" class="form-control" placeholder="Votre message ici." rows="4" required="required" data-error="Please, leave us a message.">
+                                    
+                                </textarea> 
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12" style="color: black;"> 
+
+                            <p > 3 et 2 font combien:  
+                                <input type="number" id="checker" name="checker" required inlength="4" maxlength="8" size="5">
+                            </p> 
+
+                        </div>
+
+
+                        <div class="col-md-12"> 
+
+                            <button type="submit" class="btn btn-warning btn-md btn-block"> Envoyer ce message  </button>
+
+                            <!-- <input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Envoyer message">  -->
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+     
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+<!--  This is the bottom left container   -->
+
+{% block bottom-left-container  %}
+
+
+{% endblock %}  
+
+<!--  This is the right container   -->
+
+{% block right-container  %} 
+
+    {% include "gp_app/right/right.html" %} 
+
+{% endblock %} 

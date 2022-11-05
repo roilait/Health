@@ -1,0 +1,181 @@
+{% extends "gp_app/base.html" %} 
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+<!-- This is the top lfet container -->
+
+{% block top-left-container %}
+
+    <div style="float:center; background-color:white; padding:25px"> 
+
+	    <h1 id="title_style" style="color:#808080; font-size:20px; margin-top:10px;">
+
+	       Trouver un départ <br> <hr>
+
+	    </h1>
+
+	    <p style="color:#808080"> Les champs avec <i style='color:red'>*</i> sont obligatoires </p>
+
+	  	{% for message in messages %}            
+
+	    	<div class="alert {{message.tags}} alert-dismissible" role="alert" style="color:black">
+
+	      	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+
+	        	<span aria-hidden="true"> &times; </span>
+
+	      	</button>
+
+	      	{% if message.tags == 'error' %}
+
+	        	<span style="color:red; font-size:16px"> {{ message }} </span>
+
+	      	{% elif message.tags == 'success' %}
+
+	        	<span style="color:green; font-size:16px"> {{ message }} </span>
+
+	      	{% endif %}
+
+	    	</div>
+	      
+	    {% endfor %}   
+
+    	
+	    <form action="" method="POST" style="width: 100%; margin-right: 5px";>
+			
+			<div class="input-group mb-3">
+
+			  <div class="input-group-prepend">
+
+			    <span class="input-group-text" id="inputGroup-sizing-default"> 
+
+			    	Départ de <i style='color:red'> * </i>
+
+			    </span>
+
+			  </div>
+
+			  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+
+			</div>
+
+			<div class="input-group mb-3">
+
+			  <div class="input-group-prepend">
+
+			    <span class="input-group-text" id="inputGroup-sizing-default"> 
+
+			    	Destination <i style='color:red'> * </i>
+
+			    </span>
+
+			  </div>
+
+			  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+
+			</div>
+
+			<hr >
+
+			<div class="input-group mb-3">
+
+			  <div class="input-group-prepend">
+
+			    <div class="input-group-text">
+
+			      <input type="checkbox" aria-label="Checkbox for following text input"> 
+
+			      <span style="margin-left:10px"> Date de départ </span>
+
+			    </div>
+
+			  </div>
+
+			  <input type="text" name="depart_date" class="form-control" aria-label="Text input with checkbox">
+
+			</div>
+
+			<div class="input-group mb-3">
+
+			  <div class="input-group-prepend">
+
+			    <div class="input-group-text">
+
+			      <input type="checkbox" aria-label="Checkbox for following text input">
+
+			      <span style="margin-left:10px"> Ville de départ </span>
+
+			    </div>
+
+			  </div>
+
+			  <input type="text" class="form-control" aria-label="Text input with checkbox">
+
+			</div>
+
+			<div class="input-group mb-3">
+
+			  <div class="input-group-prepend">
+
+			    <div class="input-group-text">
+
+			      <input type="checkbox" aria-label="Checkbox for following text input">
+
+			      <span style="margin-left:10px"> Ville de destination </span>
+
+			    </div>
+
+			  </div>
+
+			  <input type="text" class="form-control" aria-label="Text input with checkbox">
+
+			</div>
+
+			<div class="input-group mb-3">
+
+			  <div class="input-group-prepend">
+
+			    <div class="input-group-text">
+
+			      <input type="checkbox" aria-label="Checkbox for following text input">
+
+			      <span style="margin-left:10px"> Mode d'envoie </span>
+
+			    </div>
+
+			  </div>
+
+			  <input type="text" class="form-control" aria-label="Text input with checkbox">
+
+			</div>
+		
+	    </form>
+
+    </div>
+
+{% endblock %}  
+
+
+<!-- This is the bottom left container -->
+
+{% block bottom-left-container  %}
+
+{% endblock %}  
+
+
+<!-- This is the right container -->
+
+{% block right-container  %} 
+
+    {% include "gp_app/right/right.html" %} 
+
+{% endblock %} 
+
+
+
+
+
+
+

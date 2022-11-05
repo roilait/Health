@@ -1,0 +1,116 @@
+{% extends "base.html" %} 
+
+{% load static %}
+
+<!-- This is the top lfet container -->
+
+{% block top-left-container %}
+
+<div class="row">
+
+<div class="container-fluid" style=" float:center; background-color: #fff; padding: 15px; border-radius: 5px;  width: 100%">
+
+  <!-- <p style="background-color:#ccffcc;color: green"> Text here </p> -->
+
+  	<div class="card text-center">
+
+  		<div class="card-header" style="white: #5D6D7E;font-size: 1.30em; background-color: #0080ff">
+
+					 M'AVERTIR SI CE GP EST POSTEE ICI
+
+			</div>
+
+	    {% if request.session.logged_in %}
+
+	    	{% if alert_me_confirmed %}
+
+					{% include "poster/confirm.html" %} 
+
+				{% else %}
+
+					<!-- If the profile is updated -->
+
+					{% if request.session.profile_is_updated %}	
+
+
+						{% if alert_me  %}	
+
+							{% include "alert_me/alert_resume.html" %}
+
+						{% else %}			
+
+							{% include "messages.html" %} 
+
+							<form action="{% url 'alert_me' %}" method="POST" id="personForm" 
+								style="margin-right:5px" data-cities-url="{% url 'ajax_load_cities' %}">	
+											
+						    	<div class="card-body"> {% include "alert_me/form.html" %} </div>
+
+						    	<div class="card-footer text-muted">
+
+						    		<button type="submit" class="btn btn-warning btn-md btn-block"> Enregistrer  </button>
+
+						    	</div>
+
+							</form>
+
+						{% endif %}
+
+				{% else %}
+
+					<div class="card-body">
+						
+					  	<!-- You have to login to do a reservation -->		
+
+					    <p style="color:red"> 
+			
+							Hops, Votre profil n'est pas encore à jour !
+						</p>
+
+						<p style="color:#808080"> <i class="fa fa-share" aria-hidden="true"></i>
+
+							Cliquer <a href="{% url 'user_profile' %}"> ici </a> pour faire la mise à jour de votre profil. 
+
+						</p>
+
+					</div>
+
+				{% endif %}
+
+		    {% endif %}
+
+		{% else %}
+
+			{% include "poster/hops.html" %} 		
+
+		{% endif %}
+
+	</div>
+
+ </div>
+
+</div>
+
+{% endblock %}  
+
+
+<!-- This is the bottom left container -->
+
+{% block bottom-left-container  %}
+
+{% endblock %}  
+
+
+<!-- This is the right container -->
+
+{% block right-container  %} 
+
+    {% include "right/right.html" %} 
+
+{% endblock %} 
+
+
+
+
+
+

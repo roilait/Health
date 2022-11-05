@@ -1,0 +1,182 @@
+{
+    "Mauritanie": {
+        "Indicatif": 222,
+        "Monnaie": "MRU",
+        "Villes": {
+            "Nouakchott": [],
+            "Nouadhibou": []
+        }
+    },
+    "Sénégal": {
+        "Indicatif": 221,
+        "Monnaie": "",
+        "Villes": {
+            "Dakar": []
+        }
+    },
+    "Mali": {
+        "Indicatif": 223,
+        "Monnaie": "",
+        "Villes": {
+          "Bamako":["Aéroport de Bamako"]
+        }
+    },
+    "Maroc": {
+        "Indicatif": 212,
+        "Monnaie": "",
+        "Villes": {
+            "Casablanca": ["Aéroport de Mohammed V"],
+            "Marrakech": ["Aéroport de Marrakech-Menara"],
+            "Agadir": ["Aéroport d'Agadir-Al Massira"],
+            "Fes": ["Aéroport de Fes-Saiss"],
+            "Tanger": ["Aéroport de Tanger-Ibn Batouta"],
+            "Sale": ["Aéroport international de Rabat-Sale"],
+            "Nador": ["Aéroport de Nador-Al Aroui"],
+            "Oujda": [ "Aéroport d'Oujda-Angad"],
+            "Laayoune": ["Aéroport de Laayoune"],
+            "Dakhla": ["Aéroport de Dakhla"],
+            "Essaouira": ["Aéroport de Essaouira"],
+            "Ouarzazate": ["Aéroport de Ouarzazate"],
+            "Al Hoceima": ["Aéroport d'Al Hoceima"]
+        }
+    },
+    "Cote d'Ivoire": {
+        "Indicatif": 225,
+        "Monnaie": "",
+        "Villes": {
+            "Abengourou": ["Aéroport d'Abengourou"],
+            "Abidjan": ["Aéroport de international Felix-Houphouet-Boigny"],
+            "Aboisso": ["Aéroport d'Aboisso"],
+            "Bocanda": ["Aéroport de Bocanda"],
+            "Bondoukou": ["Aéroport de Soko"],
+            "Bouake": ["Aéroport de Bouake"],
+            "Bouna": ["Aéroport de Tehini"],
+            "Boundiali": ["Aéroport de Boundiali"],
+            "Dabou": ["Aéroport de Dabou"],
+            "Daloa": ["Aéroport de Daloa"],
+            "Dimbokro": ["Aéroport de Dimbokro (Ville)"],
+            "Divo": ["Aéroport de Divo"],
+            "Ferkessedougou": ["Aéroport de Ferkessedougou"        ],
+            "Gagnoa": ["Aéroport de Gagnoa"],
+            "Grand-Bereby": ["Aéroport de Nero-Mer"],
+            "Guiglo": ["Aéroport de Guiglo"],
+            "Katiola": ["Aéroport de Katiola"],
+            "Korhogo": ["Aéroport de Korhogo" ],
+            "Man": ["Aéroport de Man"],
+            "Odienne": ["Aéroport d'Odienne"],
+            "Ouango Fitini": ["Aéroport de Ouango Fitini"],
+            "San-Pedro": ["Aéroport de San Pedro"],
+            "Sassandra": ["Aéroport de Sassandra"],
+            "Seguela": ["Aéroport de Seguela"],
+            "Tabou": ["Aéroport de Tabou"],
+            "Toub": ["Aéroport de Mahana"],
+            "Yamoussoukro": ["Aéroport international de Yamoussoukro"]
+        }
+    },
+    "Burkina Faso": {
+        "Indicatif": 226,
+        "Monnaie": "",
+        "Villes": {
+            "Bobo Dioulasso": ["Aéroport de Bobo Dioulasso"],
+            "Dori": ["Aéroport de Dori"],
+            "Ouagadougou": ["Aéroport de Ouagadougou"]
+        }
+    },
+    "Guinée Conakry": {
+        "Indicatif": 224,
+        "Monnaie": "",
+        "Villes": {
+            "Conakry": ["Aéroport international de Conakry"]
+        }
+    },
+    "Algérie": {
+        "Indicatif": 213,
+        "Monnaie": "",
+        "Villes": {
+            "Alger": ["Aéroport international d'Alger-Houari Boumediene"]
+        }
+    },
+    "Niger": {
+        "Indicatif": 227,
+        "Monnaie": "",
+        "Villes": {
+            "Niamey": ["Aéroport de Niamey"]
+        }
+    },
+    "Angola": {
+        "Indicatif": 244,
+        "Monnaie": "",
+        "Villes": {
+            "Cabinda": ["Aéroport de Cabinda"],
+            "Camabatela": ["Aéroport de Camabatela"],
+            "Huambo": ["Aéroport de Huambo (NOV)"],
+            "Kuito": ["Aéroport de Kuito (SVP)"],
+            "Luanda": ["Aéroport de Luanda (LAD)"],
+            "Lubango": ["Aéroport de Lubango (SDD)"],
+            "Luena": ["Aéroport de Luena (LUO)"],
+            "Malanje": ["Aéroport de Malanje (MEG)"],
+            "Menongue": ["Aéroport de Menongue (SPP)" ],
+            "Namibe": ["Aéroport de Namibe (MSZ)"],
+            "Ondjiva Ongiva": [ "Aéroport de Ondjiva Ongiva (VPE)"],
+            "Saurimo": ["Aéroport de Saurimo (VHC)"],
+            "Soyo": ["Aéroport de Soyo (SZA)"]
+        }
+    },
+    "France": {
+        "Indicatif": 33,
+        "Monnaie": "",
+        "Villes": {
+            "Paris": ["Aéroport international de charle de Gaule", "Aéroport international Orly"],
+            "Douai": ["Aéroport international de Douai"],
+            "Marseille": ["Aéroport Marseille Provence"]
+        }
+    },
+    "USA": {
+        "Indicatif": 1,
+        "Monnaie": "$(USD)",
+        "Villes": {
+            "New York": [],
+            "Washinton": []
+        }
+
+    },
+    "Canada": {
+        "Indicatif": 1,
+        "Monnaie": "$(CA)",
+        "Villes": {
+            "Calgary": ["Aéroport international de Calgary" ],
+            "Charlottetown": ["Aéroport de Charlottetown"],
+            "Edmonton": ["Aéroport international d'Edmonton"],
+            "Grand Fredericton": ["Aéroport du Grand Fredericton"],
+            "Gander": ["Aéroport international de Gander"],
+            "Halifax": ["Aéroport international Robert L. Stanfield de Halifax"],
+            "Iqaluit": ["Aéroport d'Iqaluit" ],
+            "Kelowna": ["Aéroport international de Kelowna" ],
+            "London": ["Aéroport international de London"],
+            "Grand Moncton": ["Aéroport international du Grand Moncton"],
+            "Montreal": ["Aéroport international Pierre Elliott Trudeau", "Aéroport international de Mirabel"],
+            "Ottawa": ["Aéroport international d'Ottawa"],
+            "Prince George": ["Aéroport de Prince George"],
+            "Quebec": ["Aéroport international Jean Lesage (Quebec)"],
+            "Regina": ["Aéroport international de Regina"],
+            "St. John's": ["Aéroport international de St. John's"],
+            "Saint-Jean": ["Aéroport de Saint-Jean"],
+            "Saskatoon": ["Aéroport international John G. Diefenbaker de Saskatoon"],
+            "Thunder Bay": ["Aéroport international de Thunder Bay"],
+            "Toronto": ["Aéroport international Lester B. Pearson (Toronto)"],
+            "Vancouver": ["Aéroport international de Vancouver"],
+            "Victoria": ["Aéroport international de Victoria"],
+            "Whitehorse": ["Aéroport international de Whitehorse"],
+            "Winnipeg": ["Aéroport international James-Armstrong-Richardson de Winnipeg"],
+            "Yellowknife": ["Aéroport de Yellowknife" ]
+        }
+    },
+    "Brésil": {
+        "Indicatif": 55,
+        "Monnaie": "",
+        "Villes": {
+
+        }
+    }
+}
+

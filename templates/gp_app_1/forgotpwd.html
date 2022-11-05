@@ -1,0 +1,140 @@
+{% extends "gp_app/base.html" %} 
+
+{% load crispy_forms_tags %}
+
+
+<!--  This is the top lfet container  -->
+{% block top-left-container %}
+
+    <div class="row">
+
+        <div class="container-fluid" style=" float:center;background-color: #fff; padding: 15px; border-radius: 5px; width: 100%">
+
+            <div class="card">
+
+                <div class="card-header" style="color: #5D6D7E;font-size: 1.30em"> 
+
+                    MOT DE PASSE OUBLIÉ 
+
+                </div>
+
+                <div class="card-body">
+
+                    <span class="card-title"> {% include "gp_app/messages.html" %} </span>
+
+                    <form action="{% url 'forgotten_password' %}" method="POST" class="post-form">
+                        
+                        {% csrf_token %}
+
+                        {% if request.session.reset_password %}
+
+                            <p style="color: #CDD0D8;padding-top: 0em"> Créer un nouveau mot de passe </p>
+                          
+                            <div class="form-group">
+
+                              <div class="input-group mb-12">
+
+                                <div class="input-group-prepend">
+
+                                  <div class="input-group-text">
+
+                                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+
+                                  </div>
+
+                                </div>
+
+                                <input type="password" name='password1' class="form-control" value="" required placeholder="Votre nouveau mot de passe">
+
+                              </div>
+
+                            </div>
+
+                            <div class="form-group">
+
+                              <div class="input-group mb-12">
+
+                                <div class="input-group-prepend">
+
+                                  <div class="input-group-text">
+
+                                    <i class="fa fa-lock" aria-hidden="true"></i>
+
+                                  </div>
+
+                                </div>
+
+                                <input type="password" name='password2' class="form-control" value="" required placeholder="Confirmer votre mot de passe">
+
+                              </div>
+
+                            </div> 
+
+                            <p style="color: green"> Vérifier votre email et saisir le code ci-dessous. </p>
+
+                            <div class="alert alert-danger" style="margin-right: 20%; margin-left:20% "> 
+
+                                <input type="text" name='security_code' class="form-control" value="" required placeholder="Code de sécurité">
+
+                            </div>             
+
+                            <input type="hidden" name="action" value="new_password">
+
+                            <button type="submit" class="btn btn-secondary"> Nouveau mot de passe </button>
+
+                        {% else %}
+                        
+                            <div class="input-group mb-3" style="padding: 5px">
+
+                                <div class="input-group-prepend">
+
+                                    <span class="input-group-text" id="basic-addon1"> @ </span>
+
+                                </div>
+
+                                <input type="text" class="form-control" name="email" placeholder="Addresse email" aria-describedby="basic-addon1" required>
+
+                            </div>
+
+                            <input type="hidden" name="action" value="get_security_code">
+
+                            <div class="form-group">
+
+                                <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2em;padding-right: 2em"> 
+
+                                    Réinitialiser 
+
+                                </button>
+
+                            </div>                        
+
+                        {% endif %}
+
+                    </form>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}  
+
+
+<!--  This is the bottom left container   -->
+
+{% block bottom-left-container  %}
+   
+
+{% endblock %}  
+
+
+<!--  This is the right container   -->
+
+{% block right-container  %} 
+
+    {% include "gp_app/right/right.html" %} 
+
+{% endblock %} 

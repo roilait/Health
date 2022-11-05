@@ -1,0 +1,96 @@
+{% extends "gp_app/base.html" %} 
+
+{% load crispy_forms_tags %}
+
+<!--  This is the top lfet container  -->
+
+{% block top-left-container %}
+
+  <div class="row">
+
+    <div class="container-fluid" 
+        style=" float:center; background-color: #fff; padding: 25px; border-radius: 5px;  width: 100%">
+
+
+      {% if registered %} <!-- Le formulaire d'enregistrement est valide -->
+
+          <!-- The registration has been confirmed -->
+
+          {% include "gp_app/register/register_ok.html" %} 
+      
+      {% else %} <!-- Le formulaire d'enregistrement n'est pas valide -->
+
+          <div class="card text-center">
+
+              <div class="card-header" style="white: #5D6D7E;font-size: 1.25em; background-color: #0080ff"> DEVENIR MEMBRE </div>
+
+                <div class="card-body">
+
+                  <!-- Afficher le message d'erreur -->
+                  
+                  {% include "gp_app/messages.html" %} 
+             
+                  <form action="{% url 'register' %}" method="POST">  
+
+                    {% csrf_token %}
+
+                    {% crispy form %} 
+
+                    <p>
+
+                      <div class="form-check">
+
+                        <input class="form-check-input" type="checkbox" value="Accept" name="terms" required/>
+
+                        <label class="form-check-label" for="flexCheckChecked" style="color: black">
+
+                            J'ai lu et j'accepte les termes et conditions 
+
+                        </label>
+
+                      </div>
+
+                    </p>
+
+                    <button type="submit" class="btn btn-warning btn-md btn-block"> Créer un compte  </button>
+
+                  </form>
+
+                  <a href=""> 
+
+                      <p style='color: #290066'> Inscrit mais compte non activé </p> 
+
+                  </a>
+
+                  <div class="text-center" style="color: black"> Avez-vous déjà un compte? 
+
+                      <a href="{% url 'login' %}"> Cliquez ici </a>
+                    
+                  </div>
+
+                </div>
+            
+          </div>
+        
+      {% endif %}
+
+    </div>
+
+  </div>
+
+{% endblock %}
+
+<!--  This is the bottom left container   -->
+
+{% block bottom-left-container  %}  
+
+
+{% endblock %}  
+
+<!--  This is the right container   -->
+
+{% block right-container  %} 
+
+    {% include "gp_app/right/right.html" %} 
+
+{% endblock %} 

@@ -1,0 +1,252 @@
+{% extends "gp_app/base.html" %} 
+
+{% load crispy_forms_tags %}
+
+<!--  This is the top lfet container  -->
+
+{% block top-left-container %}
+
+
+<style type="text/css">
+td#controls {
+    /*background-color: #000;*/
+    color: #FFF;
+    width: 200px;
+}
+td#controls ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+td#controls li {
+    padding: 1.3ex 0;
+    border-bottom: 1px solid #666;
+}
+td#controls input {
+    margin-right: 0.5em;
+}
+td#events {
+    width: 500px;
+    /*background-color: #cccccc;*/
+}
+td#events table td {
+    padding: 0 0.5em;
+    height: 1.8em;
+    border-bottom: 1px solid #666;
+}
+/*tbody#eventsList tr.stripe0 { background-color: #e0e0e0; }
+tbody#eventsList tr.stripe1 { background-color: #cccccc; }*/
+</style>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript" language="javascript">
+$(function(){
+    var $rowSelectors = $("#controls input.rowSelector");
+    var $eventRows = $("tbody#eventsList tr");
+    function setStripes(){
+        $eventRows.not(":hidden").removeClass('stripe1').addClass('stripe0').filter(":odd").removeClass('stripe0').addClass('stripe1');
+    }
+    $rowSelectors.click(function(){
+        $rowSelectors.each(function(){
+            var fn = this.checked ? 'show' : 'hide';
+            $eventRows.filter("." + this.value)[fn]();
+            setStripes();
+        });
+    });
+    $("#massControls a").click(function(){
+        $rowSelectors.attr('checked', (this.name==='1')?true:false).eq(1).triggerHandler('click');
+    }).eq(1).click();//change to .eq(1).click() for initially [all off]
+});
+
+</script>
+
+
+
+    <div class="row main-div" style="padding: 0px;color: black;"> 
+        <!-- <p style="background-color:#ccffcc;color: green">Text here</p> -->
+        <h1 class="custom-form-title" style="padding-top: 20px;width: 100%"> 
+
+            Mes propositions <hr>
+
+        </h1>
+
+        <table width="100%">
+
+            <tr id="controls" valign="top">
+
+                <td width="33%">     
+
+                    <input type="checkbox" class="rowSelector" id="rs0" value="current" checked="true">
+
+                    <label for="rs0"> En cours </label>
+
+                </td>
+
+                <td width="33%">
+
+                    <input type="checkbox" class="rowSelector" id="rs1" value="past">
+
+                    <label for="rs1"> Passee </label>  
+
+                </td>
+
+                <td>
+
+                    <input type="checkbox" class="rowSelector" id="rs2" value="canceled">
+
+                    <label for="rs2"> Annulee </label>
+
+                </td>
+
+            </tr>
+
+            <tr><td colspan="3"> <hr></td></tr>
+
+            <tr>
+
+                <td colspan="3" id="events" valign="top">
+
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                        <tr><td> Event Calendar </td></tr>
+
+                        <tbody id="eventsList">
+
+                            <tr class="current">
+
+                                <td> 
+
+                                    {% if my_current_posts %}
+
+                                        {% for post in my_current_posts %}
+
+                                          {% include 'gp_app/poster/current_posts.html' %}
+
+                                          <table width="100%" align="center">
+
+                                            <tr>
+
+                                                <td> <input type="button" value="Modifier"> </td>
+
+                                                <td> <input type="button" value="Annuler"> </td>
+
+                                            </tr> 
+
+                                            <tr><td colspan="2"> <hr> </td></tr>   
+
+                                          </table>
+                                          
+                                        {% endfor %}
+
+                                    {% else %}
+
+                                        <h6 style="color: black">
+                                          Vous avez 0 proposition en cours. </h6>
+
+                                    {% endif %}
+
+                                </td>
+
+                            </tr>
+
+                            <tr class="past">
+
+                                <td>
+                                    {% if my_past_posts %}
+
+                                        {% for post in my_past_posts %}
+
+                                          {% include 'gp_app/poster/current_posts.html' %}
+
+                                          <table width="100%" align="center">
+
+                                            <tr>
+
+                                                <td> <input type="button" value="Modifier"> </td>
+
+                                                <td> <input type="button" value="Annuler"> </td>
+
+                                            </tr> 
+
+                                            <tr><td colspan="2"> <hr> </td></tr>     
+
+                                          </table>
+                                          
+                                        {% endfor %}
+
+                                    {% else %}
+
+                                        <h6 style="color: black">
+
+                                          Vous avez 0 proposition en déjà terminée. </h6>
+
+                                    {% endif %}
+
+                                </td>
+
+                            </tr>
+
+                            <tr class="canceled">
+
+                                <td>
+
+                                    {% if my_canceled_posts %}
+
+                                        {% for post in my_canceled_posts %}
+
+                                          {% include 'gp_app/poster/current_posts.html' %}
+
+                                          <table width="100%" align="center">
+
+                                            <tr>
+
+                                                <td> <input type="button" value="Modifier"> </td>
+
+                                                <td> <input type="button" value="Annuler"> </td>
+
+                                            </tr> 
+
+                                            <tr><td colspan="2"> <hr> </td></tr>  
+
+                                          </table>
+                                          
+
+                                        {% endfor %}
+
+                                    {% else %}
+
+                                        <h6 style="color: black"> Vous avez 0 proposition annulée. </h6>
+
+                                    {% endif %}
+
+                                </td>
+
+                            </tr>   
+
+                        </tbody>
+
+                    </table>
+
+                </td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+{% endblock %}  
+
+<!--  This is the bottom left container   -->
+
+{% block bottom-left-container  %}
+
+{% endblock %} 
+
+<!--  This is the right container   -->
+
+{% block right-container  %} 
+
+    {% include "gp_app/right/right.html" %} 
+
+{% endblock %} 

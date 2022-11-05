@@ -1,0 +1,66 @@
+{% load cache %}
+
+{% if not df_member_canceled_posts.empty %}
+
+  {% for index, row in df_member_canceled_posts.iterrows  %}
+
+   <!--  {% cache 120 canceled_post row.post_id %} -->
+
+      <div class="card text-center mb-3" style="width: 100%;">
+
+        <!-- #E5EC9A #D1E8CF, Header block -- C4D4DF -->
+
+        <div class="card-header" style="background-color: #E5EC9A"> 
+
+            {% include 'gp_app/poster/header.html' %} 
+
+        </div>
+
+          <!-- Center Block -->
+
+          <div class="card-body"> 
+
+            {% include 'gp_app/poster/body.html' %} 
+
+              <div style="width: 100%; border: 0px solid black;padding-top:5px; float:left;">
+
+                <hr> Etat du service: <span style="color: red"> ANNULÉ </span>
+
+              </div>
+
+              <div style="width: 100%; border: 0px solid black;float:left;"> 
+
+                 <p> GP - PIN: <b style="color: #C60839"> {{ row.post_code }} </b> </p>
+
+              </div> 
+
+          </div>
+
+          <!-- Footer Block to dispaly all reservation of this post-->
+
+          <div class="card-footer text-muted"> 
+
+            <!-- Show the reservation on this post -->
+
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+            <b href="#" id="{{row.post_id}}" style="color: #0F4FBF"> 
+
+              ({{ row.nbr_canceled_res }}) - Réservations effectuées sur - <span style="color:red"> {{ row.post_code }} </span> </b> 
+
+              {% include 'gp_app/reserver/canceled_reservers_info.html' %} 
+
+          </div>
+
+      </div>
+
+    <!-- {% endcache %} -->
+
+  {% endfor %}
+
+{% else %}
+
+    <p style="color:#A44D09"> Vous avez (0) proposition en cours </p>
+
+{% endif %}
+

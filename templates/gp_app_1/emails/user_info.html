@@ -1,0 +1,77 @@
+<table style="width: 90%; margin-left: 5%;text-align: left">
+
+	<tr>
+
+		<td width="50%" style="padding-top: 0.5em"> 
+
+			{% if email_to_poster %}  <b> Réserveur: </b> {% endif %} 		     
+
+		  	{% if email_to_reserver %} <b> Co-valiseur: </b> {% endif %}
+
+		</td> 
+
+		<td style="text-align: left"> {{ full_name }} </td>
+
+	</tr>
+
+    <tr style="padding-top: 0.5em;text-align: left">
+
+    	<td> Départ le: </td> 
+
+    	<td> {{ departure_date }}, </td>
+
+    </tr>
+
+    <tr>
+
+    	<td style="padding-top: 0.5em;text-align: left"> De: </td> 
+
+    	<td style="text-align: left"> {{ departure }}, </td>
+
+    </tr>
+
+    <tr>
+    	<td style="padding-top: 0.5em;text-align: left"> Vers: </td> 
+
+    	<td style="text-align: left"> {{ destination }}, </td>
+
+    </tr>
+
+    <tr>
+    	<td style="padding-top: 0.5em;text-align: left"> kg réservés: </td> 
+
+    	<td style="text-align: left"> {{ kg_reserved }} kg,  </td>
+
+    </tr>
+
+    <tr>
+    	<td style="padding-top: 0.5em;text-align: left"> Montant: </td> 
+
+    	<td style="text-align: left"> {{ total_price }} {{ currency  }}, </td>
+
+    </tr>
+
+    <tr>
+
+    	<td style="padding-top: 0.5em;text-align: left"> Téléphone: </td> 
+
+    	<td style="text-align: left"> {{ phone }}, </td>
+
+    </tr>
+
+    <tr>
+
+    	<td style="padding-top: 0.5em;text-align: left"> Email: </td> 
+
+    	<td style="text-align: left"> {{ email }}, </td>
+
+    </tr>
+
+    <tr>
+    	<td style="padding-top: 0.5em;text-align: left"> Langue: </td> 
+
+    	<td style="text-align: left"> {{ receiver_language }}, </td>
+
+    </tr>
+
+</table>

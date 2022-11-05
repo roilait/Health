@@ -1,0 +1,105 @@
+<!-- Detail file in poster folder -->
+
+<style>
+  .circle-image-ur{
+      display: inline-block; border-radius: 50%; overflow: hidden; width: 35px; height: 35px;
+  }
+  .circle-image-ur img{
+      width:100%; height:100%; object-fit: cover;
+  }
+  #parent { float: left; width: 100% }
+</style>
+
+
+{% load static %}
+
+<div id="content{{row.post_id}}">
+
+	<hr>
+
+  {% for index_re, row_re in df_reservers_in_progress.iterrows %} 
+
+    {% if row.post_id == row_re.post_id  %}
+
+    <div class="parent" style="float: left;width:100%;border-style: solid;padding-top:5px;">
+
+      <b style="color: #BD1256"> Envoyeur - {{ index_re|add:1  }} : </b> {{ row_re.r_full_name }}  
+
+    </div>
+
+    <table style="width: 100%;">
+
+      <tr> <td style="float: left; padding-top:8px"> <b> Téléphone:</b> {{ row_re.r_phone_number }} </td> </tr>
+
+      <tr> <td style="float: left; padding-top:8px"> <b> E-mail:</b> {{ row_re.r_email }} </td> </tr>
+
+      <tr> <td style="float: left; padding-top:8px"> <b> Langue:</b> {{ row_re.r_language }} </td> </tr>
+
+      <tr> <td style="float: left; padding-top:8px"> <b> Réservé le:</b> {{ row_re.publish_date }} </td> </tr>
+      
+    </table>
+
+    <table style="width: 100%;">
+
+      <tr> 
+
+        <td style="width: 40%; text-align: left; padding-top:8px"> 
+
+          <img class="circle-image-ur" src="{{ row_re.r_profile_img }}" alt="No"/>
+
+        </td> 
+
+        <td style="width: 60%; text-align: left;"> 
+
+          <div style="float: left;width:45%">
+
+            {{ row_re.r_notes }} <i style="font-size:12px;color:#D68910" class="fa fa-star"></i>
+
+          </div>   
+
+          <!-- Detail file in poster folder -->
+
+          <div style="float: right;width: 50%"> {{ row_re.r_accept_rate }} % <i class='fa fa-user'></i>
+
+          </div>  
+
+        </td>
+
+      </tr>  
+
+    </table> <hr>
+
+    {% endif %}
+
+  {% endfor %}
+
+</div>
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+	    
+	    $('#{{row.post_id}}').click( function(e) {
+	        
+	        e.preventDefault(); // stops link from making page jump to the top
+
+	        e.stopPropagation(); // when you click the button, it stops the page from seeing it as clicking the body too
+
+	        $('#content{{row.post_id}}').toggle();
+	        
+	    });
+	    
+	    $('#content{{row.post_id}}').click( function(e) {
+	        
+	        e.stopPropagation(); // when you click within the content area, it stops the page from seeing it as clicking the body too
+	        
+	    });
+	    
+	    $('body').click( function() {
+	       
+	        $('#content{{row.post_id}}').hide();
+	        
+	    });
+	    
+	});
+</script>

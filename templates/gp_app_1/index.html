@@ -1,0 +1,76 @@
+<style type="text/css">
+
+  .sort-select#sort2 { display: none; }
+
+</style>
+
+{% extends "gp_app/base.html" %} 
+
+{% load static %}
+
+<!--  This is the top lfet container   -->
+
+{% block top-left-container %} 
+
+<!--   {{ ville_pays }} -->
+  
+<div class="container d-flex align-items-center flex-column">
+
+    <!--Masthead Avatar Image-->
+
+    <img class="masthead-avatar mb-5" src="{% static 'assets/img/logo.jpg' %}" alt="" />
+
+    <!--Masthead Heading-->
+
+    <h6> Service GP est simple avec Vitexpro 1 </h6>
+
+
+
+<audio controls>
+    <source src="https://sendeyo.com/show/c7af322b9a.mp3" type="audio/mpeg">
+    <source src="https://sendeyo.com/show/c7af322b9a.ogg" type="audio/ogg">
+    Votre navigateur ne supporte pas la balise audio.
+</audio>
+
+      <!-- Icon Divider-->
+
+    <div class="divider-custom divider-light">
+
+        <div class="divider-custom-line"></div>
+
+        <div class="divider-custom-icon"> <i class="fas fa-star"></i> </div>
+
+        <div class="divider-custom-line"></div>
+
+    </div>
+
+    <!--Masthead Subheading-->
+
+     <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'addNewpatient' %}"> FARL </a>
+
+
+    <p class="masthead-subheading font-weight-light mb-0">
+
+        Amortissez vos billets ou envoyez vos colis en mettant vos annonces sur <i style="color:blue"> vitexpro.com </i>
+
+    </p>
+
+</div>
+
+{% endblock %}  
+
+<!--  This is the bottom left container -->
+
+{% block bottom-left-container  %}
+
+    <!-- <a href="{% url 'register' %}"> M'inscrire maintenant </a>  -->    
+
+{% endblock %}  
+
+<!--  This is the right container (right column)  -->
+
+{% block right-container  %} 
+
+    {% include "gp_app/right/right.html" %} 
+
+{% endblock %} 

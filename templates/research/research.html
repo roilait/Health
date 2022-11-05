@@ -1,0 +1,125 @@
+{% extends "gp_app/base.html" %} 
+
+{% load static %}
+
+<!-- This is the top lfet container -->
+
+{% block top-left-container %}
+
+<div class="row">
+
+<div class="container-fluid" style=" float:center; background-color: #fff; padding: 15px; border-radius: 5px;  width: 100%">
+
+  <!-- <p style="background-color:#ccffcc;color: green"> Text here </p> -->
+
+  	<div class="card text-center">
+
+  		<div class="card-header" style="white: #5D6D7E;font-size: 1.30em; background-color: #0080ff">
+
+	  		{% if doing_research  %}	
+
+	  		 	<h6 style="color:white"> LES RESULTATS DE VOTRE RECHERCHE ({{ df_research_results.shape.0 }}) </h6>
+
+	  		{% else %}
+
+					 TOUVER DES ANNONCES
+
+				{% endif %}
+
+			</div>
+
+
+	    {% if request.session.logged_in %}
+
+	    	{% if post_confirmed %}
+
+					{% include "gp_app/poster/confirm.html" %} 
+
+				{% else %}
+
+					<!-- If the profile is updated -->
+
+					{% if request.session.profile_is_updated %}	
+
+
+						{% if doing_research  %}	
+
+
+							{% include "gp_app/research/results.html" %}
+
+
+						{% else %}			
+
+							{% include "gp_app/messages.html" %} 
+
+
+							<form action="{% url 'research' %}" method="POST" id="personForm" 
+							style="margin-right:5px" data-cities-url="{% url 'ajax_load_cities' %}">	
+											
+						    	<div class="card-body"> {% include "gp_app/research/form.html" %} </div>
+
+						    	<div class="card-footer text-muted">
+
+						    		<button type="submit" class="btn btn-warning btn-md btn-block"> Rechercher  </button>
+
+						    	</div>
+
+							</form>
+
+						{% endif %}
+
+				{% else %}
+
+					<div class="card-body">
+						
+					  	<!-- You have to login to do a reservation -->		
+
+					    <p style="color:red"> Hops, Votre profil n'est pas encore à jour ! </p>
+
+						<p style="color:#808080"> <i class="fa fa-share" aria-hidden="true"></i>
+
+							Cliquer <a href="{% url 'user_profile' %}"> ici </a> pour faire la mise à jour de votre profil. 
+
+						</p>
+
+					</div>
+
+				{% endif %}
+
+		  {% endif %}
+
+		{% else %}
+
+			{% include "gp_app/poster/hops.html" %} 		
+
+		{% endif %}
+
+	</div>
+
+ </div>
+
+</div>
+
+{% endblock %}  
+
+
+<!-- This is the bottom left container -->
+
+{% block bottom-left-container  %}
+
+{% endblock %}  
+
+
+<!-- This is the right container -->
+
+{% block right-container  %} 
+
+    {% include "gp_app/right/right.html" %} 
+
+{% endblock %} 
+
+
+
+
+
+

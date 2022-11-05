@@ -1,0 +1,42 @@
+<!-- {% if not df_user_posts.empty %} -->
+
+{% if not df_member_completed_posts.empty %}
+
+    {% for index, row in df_member_past_post.iterrows  %}
+
+        <div class="card text-center mb-3" style="width: 100%;">
+
+            <!-- #E5EC9A #D1E8CF, Header block -- C4D4DF -->
+
+            <div class="card-header" style="background-color: #D1E8CF"> 
+
+              {% include 'gp_app/poster/header.html' %} 
+
+            </div>
+
+            <!-- Center Block -->
+            
+            <div class="card-body"> {% include 'gp_app/poster/body.html' %} </div>
+
+            <!-- Footer Block -->
+            <div class="card-footer text-muted"> 
+
+              Voir les réservations({{ df_member_current_posts.shape }})
+
+            </div>
+
+      </div>
+
+    {% endfor %}
+
+{% else %}
+
+  <p style="color:#A44D09"> Vous avez (0) proposition terminée </p>
+
+{% endif %}
+
+<!-- {% else %}
+
+    Vous avez (0) proposition(s) terminée(s)
+
+{% endif %} -->

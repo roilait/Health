@@ -1,0 +1,87 @@
+
+<ul class="navbar-nav ml-auto text-uppercase"> 
+
+    <li class="nav-item mx-0 mx-lg-1"> 
+        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 
+            href="{% url 'index' %}"> Accueil
+        </a>
+    </li>
+
+    <li class="nav-item mx-0 mx-lg-1">
+        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 
+            href="{% url 'contact_us' %}"> Contact 
+        </a>
+    </li>
+
+    <li class="nav-item mx-0 mx-lg-1">
+
+        {% if request.session.logged_in %}
+
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 
+                href="{% url 'logout' %}"> <i style="color:red"> Déconnexion </i> 
+            </a>
+
+        {% else %}
+
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 
+                href="{% url 'login' %}"> Connexion 
+            </a>
+
+        {% endif %}
+
+    </li>
+
+    <li class="nav-item mx-0 mx-lg-1">
+
+        {% if not request.session.logged_in %}
+
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 
+                href="{% url 'register' %}"> Inscription 
+            </a>
+           
+        {% else %}
+
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 
+                href="{% url 'user_profile' %}"> Profil 
+            </a>
+        
+        {% endif %}
+
+    </li>
+
+    <li class="nav-item mx-0 mx-lg-1">
+        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 
+            href="{% url 'proposition' %}" > 
+            <div class="dropdown"> Proposer </div>
+        </a>
+    </li>
+
+  <li class="nav-item mx-0 mx-lg-1">
+
+</li>
+
+<div class="btn-group">
+   <button type="button" class="btn btn-primary">Home</button>
+   <button type="button" class="btn btn-primary">Articles</button>
+   <div class="btn-group">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+         Tutorials
+      </button>
+      <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Database</a>
+          <a class="dropdown-item" href="#">Server Side</a>
+          <a class="dropdown-item" href="#">Client Side</a>
+      </div>
+   </div>
+</div>
+
+</li>
+
+    <li class="nav-item mx-0 mx-lg-1">
+        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 
+            href="{% url 'research' %}"> Rechercher 
+        </a>        
+   </li>
+</ul>
+
+ 

@@ -1,0 +1,77 @@
+<div class="float-left" style="padding-bottom: 10px;">
+
+  <i class="far fa-calendar-alt" aria-hidden="true"></i>
+
+  <span style="padding: 0px;color: green"> {{ row.departure_date }} </span> 
+
+  <i style="color: #2471A3"> - Service: <b style="color: red"> {{ row.service }} </b> </i>
+
+</div> 
+
+<div class="float-left" style="padding-bottom: 10px;">
+
+  <i style="color: #34495E" class="fas fa-map-marker-alt"></i> 
+
+  <span style="color: black"> <b> De </b>: {{ row.depart_city }}, {{ row.depart_country }} </span>
+
+</div> 
+
+<div class="float-left" style="padding-bottom: 10px;">
+
+  <i style="color: #34495E" class="fas fa-map-marker-alt"></i> 
+
+  <span style="color: black"> <b> A </b>: {{ row.arrival_city }}, {{ row.arrival_country }} </span> 
+
+</div> 
+
+<div class="float-left" style="padding-bottom:10px;"> 
+
+  <i style="color: #34495E">
+
+    {% if row.gp_sent_by == 'air' %}
+
+      <i class="fas fa-plane-departure"></i>
+
+    {% endif %}
+
+
+    {% if row.gp_sent_by == 'mer' %}
+
+      <i class="fa fa-ship" aria-hidden="true"></i>
+
+    {% endif %}
+
+
+    {% if row.gp_sent_by == 'terre' %}<br>
+
+      <i class="fa fa-car" aria-hidden="true"></i>
+
+    {% endif %} :
+
+     </i> <span style="color: black;padding-bottom: 10px;"> Moyen de transport </span> <br>
+
+    Etat de la réservation:
+
+        {% if row_re.reserv_state  == 'In progress' %} 
+
+            {% if row.departure_date_in_progress %}
+
+                <b style="color: #297D05"> EN COURS </b> 
+
+            {% else %}   
+
+                <b style="color: red"> A TERMINER </b>  
+
+            {% endif %}                  
+
+        {% elif row_re.reserv_state  == 'Completed' %}
+
+              <b style="color:green"> <i> TERMINÉ </i> </b>
+
+        {% elif row_re.reserv_state  == 'Canceled' %}
+
+              <b style="color: #F00D52"> ANNULÉ </b>  
+
+        {% endif %} 
+      
+</div>

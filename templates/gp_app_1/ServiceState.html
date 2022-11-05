@@ -1,0 +1,23 @@
+Etat du service: 
+
+	{% if row.post_state == 'In progress' %} 
+
+	    {% if row.departure_date_in_progress %}
+
+	        <b style="color: #297D05"> EN COURS </b> 
+
+	    {% else %}   
+
+	        <b style="color: red"> A TERMINER </b>  
+
+	    {% endif %}                  
+
+	{% elif row.post_state == 'completed' %}
+
+	      <b style="color: #224998"> TERMINÉ </b>
+
+	{% elif row.post_state == 'canceled' %}
+
+	      <b style="color: #F00D52"> ANNULÉ </b>  
+
+	{% endif %} 
