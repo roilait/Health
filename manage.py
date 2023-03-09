@@ -2,10 +2,15 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import django
+# https://www.codementor.io/@garethdwyer/creating-and-hosting-a-basic-web-application-with-django-with-repl-it-lohsyub20
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sante_project.settings')
+    """Run administrative tasks."""
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sante_app.settings')
+    django.setup()
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

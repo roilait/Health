@@ -1,4 +1,7 @@
 from django.contrib import admin
+
+# Register your models here.
+from django.contrib import admin
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
@@ -9,26 +12,20 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 from . import models
 # Register your models here.
-Users = get_user_model()
+Members = get_user_model()
 
 # list other models here
-MODELS = [
+appModels = [
     models.Profiles,
-    models.Research,
-    models.Countries,
-    models.Cities,
-    models.Aeroports,
-    models.Posts,
-    models.Reservations,
-    models.Comments,
-    models.AlertMe,
+    #models.Research,
+    #models.Countries,
+    # models.Cities,
+    #models.Aeroports,
+    #models.Posts,
+    #models.Reservations,
+    #models.Comments,
+    #models.AlertMe,
 ]
-
-
-# class GpProjectAdmin(admin.ModelAdmin):
-#     fieldsets = [
-#
-#     ]
 
 
 class UserAdminCreationForm(forms.ModelForm):
@@ -36,15 +33,11 @@ class UserAdminCreationForm(forms.ModelForm):
     A form for creating new users. Includes all the required
     fields, plus a repeated password.
     """
-    password1 = forms.CharField(
-        label='Mot de passe', widget=forms.PasswordInput
-    )
-    password2 = forms.CharField(
-        label='Confirmer le mot de passe', widget=forms.PasswordInput
-    )
+    password1 = forms.CharField(label='Mot de passe', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Confirmer le mot de passe', widget=forms.PasswordInput)
 
     class Meta:
-        model = Users
+        model = Members
         fields = ['full_name', 'email']  # full_name
 
     def clean_password2(self):
@@ -74,7 +67,7 @@ class UserAdminChangeForm(forms.ModelForm):
     password = ReadOnlyPasswordHashField()
 
     class Meta:
-        model = Users
+        model = Members
         fields = ['full_name', 'email', 'password', 'active', 'admin']
 
     def clean_password(self):
@@ -94,24 +87,20 @@ class UserAdmin(BaseUserAdmin):
     search_fields = ('email',)
     ordering = ('email',)
     filter_horizontal = ()
-    list_display = ['email', 'active', 'staff', 'admin']
-    list_filter = ['admin', 'staff', 'active']
+    list_display = ['full_name', 'email', 'active', 'staff', 'admin']
+    list_filter = ['full_name', 'admin', 'staff', 'active']
 
     fieldsets = (
         (
             None, {
-                'fields': (
-                    'full_name', 'email', 'last_login', 'password'
-                )
+                'fields': ('full_name', 'email', 'last_login', 'password')
             }
         ),
         # ('Personal info', {'fields': ()}),
         (
             'Permissions',
             {
-                'fields': (
-                    'admin', 'staff', 'active'
-                )
+                'fields': ('admin', 'staff', 'active')
             }
         ),
     )
@@ -121,12 +110,8 @@ class UserAdmin(BaseUserAdmin):
         (
             None,
             {
-                'classes': (
-                    'wide',
-                ),
-                'fields': (
-                    'full_name', 'email', 'password1', 'password2'
-                )
+                'classes': ('wide',),
+                'fields': ('full_name', 'email', 'password1', 'password2')
             }
         ),
     )
@@ -135,8 +120,23 @@ class UserAdmin(BaseUserAdmin):
 # Remove Group Model from admin. We're not using it.
 admin.site.unregister(Group)
 
-admin.site.register(Users, UserAdmin)
+admin.site.register(Members, UserAdmin)
 
-for model in MODELS:
+
+class CountriesAdmin(admin.ModelAdmin):
+    list_display = ("name", "phone_code", "currency", "is_active")
+
+
+admin.site.register(models.Countries, CountriesAdmin)
+
+
+class CitiesAdmin(admin.ModelAdmin):
+    list_display = ("name", "country", "is_active")
+
+
+admin.site.register(models.Cities, CitiesAdmin)
+
+
+for model in appModels:
     admin.site.register(model)
 

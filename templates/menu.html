@@ -1,64 +1,10 @@
-
-<div class="navbar-header">
-
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-
-        <span class="icon-bar"></span>
-
-        <span class="icon-bar"></span>
-
-        <span class="icon-bar"></span> 
-
-    </button>
-
-    <a class="navbar-brand" href="#"> vitexpro RIM  </a>
-
-</div>
-
-<div class="collapse navbar-collapse" id="myNavbar">
-
-    <ul class="nav navbar-nav"> 
-
-        <li> <a href="{% url 'index' %}"> Accueil </a> </li>
-
-        <li> <a href="{% url 'contact_us' %}"> Contact </a> </li>
-
-        <li>
-
-            {% if request.session.logged_in %}
-
-                <a  href="{% url 'logout' %}"> <i style="color:red"> Déconnexion </i> </a>
-
-            {% else %}
-
-                <a  href="{% url 'login' %}"> Connexion </a>
-
-            {% endif %}
-
-        </li>
-
-        <li>
-
-            {% if not request.session.logged_in %}
-
-                <a  href="{% url 'register' %}"> Inscription </a>
-               
-            {% else %}
-
-                <a  href="{% url 'user_profile' %}"> Profil </a>
-            
-            {% endif %}
-
-        </li>
-
-        <li> <a  href="{% url 'proposition' %}"> Proposer </a> </li>
-
-        <li> <a  href="{% url 'alert_me' %}"> M'avertir </a> </li>
-
-        <li> <a  href="{% url 'research' %}"> Rechercher </a> </li>
-       
-    </ul>
-
-</div>
-
- 
+<ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+    <li class="nav-item"><a class="nav-link me-lg-3" href="#features">Features</a></li>
+    <li class="nav-item"><a class="nav-link me-lg-3" href="#download"> Se connecter </a></li>
+</ul>
+<button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+    <span class="d-flex align-items-center">
+        <i class="bi-chat-text-fill me-2"></i>
+        <span class="small">Send Feedback</span>
+    </span>
+</button>
