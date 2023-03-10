@@ -1,11 +1,8 @@
 # https://www.youtube.com/watch?v=8VYx-cNF1lU
 
 from django.urls import path
-
 from . import views
-
 from django.conf import settings
-
 from django.conf.urls.static import static
 
 import random
