@@ -19,13 +19,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />  
+  
     </head>
     <body id="page-top">
 
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav" style="border: solid;">
             <div class="container px-5">
-                <a class="navbar-brand fw-bold" href="#page-top"> RIM Santé - Dossier Patients Centralisée </a>
+                <a class="navbar-brand fw-bold" href="#page-top"> <img class="app-badge" src="{% static 'assets/img/drapeau_rim.webp' %}" alt="..." />  RIM Santé - Dossier Patients Centralisée </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="bi-list"></i>
@@ -44,23 +45,27 @@
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
 
-                    <div class="col-lg-6" style="border: solid;">
-                        <!-- Mashead text and app badges-->
-                        <div class="mb-5 mb-lg-0 text-center text-lg-start">
+                    {% block merged_cols %} 
 
-                            {% block left %} {% endblock %}
+                        <div class="col-lg-6" style="border: solid;">
+                            <!-- Mashead text and app badges-->
+                            <div class="mb-5 mb-lg-0 text-center text-lg-start">
 
+                                {% block left %} {% endblock %}
+
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-6" style="border: solid;">
-                        <!-- Masthead device mockup feature-->
-                        <div class="masthead-device-mockup">
+                        <div class="col-lg-6" style="border: solid;">
+                            <!-- Masthead device mockup feature-->
+                            <div class="masthead-device-mockup">
 
-                            {% block right %} {% endblock %}
+                                {% block right %} {% endblock %}
 
+                            </div>
                         </div>
-                    </div>
+
+                    {% endblock %}
 
                 </div>
             </div>

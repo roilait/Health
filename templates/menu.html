@@ -1,6 +1,8 @@
 <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-    <li class="nav-item"><a class="nav-link me-lg-3" href="#features">Features</a></li>
-    <li class="nav-item"><a class="nav-link me-lg-3" href="#download"> Se connecter </a></li>
+    <li class="nav-item"><a class="nav-link me-lg-3" href="{% url 'index' %}" > Accueil </a></li>
+     <li class="nav-item"><a class="nav-link me-lg-3" href="{% url 'register' %}"> Inscription </a></li>
+    <li class="nav-item"><a class="nav-link me-lg-3" href="{% url 'login' %}"> Se connecter </a></li>
+    <li class="nav-item"><a class="nav-link me-lg-3" href="{% url 'logout' %}"> Se deconnecter </a></li>
 </ul>
 <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
     <span class="d-flex align-items-center">
